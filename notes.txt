@@ -1,0 +1,19 @@
+Classes:
+* Crop
+  *Survivability
+  *Grow Time
+
+
+* Animal
+  *Survivability
+  *Collection Time(?)
+
+
+* Farmer:
+  *Balance
+  *Happiness
+  *Inventory
+  *Stamina
+
+
+ 
