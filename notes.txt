@@ -16,4 +16,5 @@ Classes:
   *Stamina
 
 
- 
+Global Variables:
+* Date 
