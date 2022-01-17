@@ -40,10 +40,6 @@ LESSONS LEARNED
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
 
-
-2022/01/13
--Created repo and registered on google form.
--Talked about project idea (Farming simulator) and classes/variables that we may need.
 --------------------------------------------------------------
 
 <Member> :: <Thing member did.>
@@ -54,3 +50,7 @@ LESSONS LEARNED
 1/13/22 12:00 PM
 -Created repo and registered on google form.
 -Talked about project idea (Farming simulator) and classes/variables that we may need.
+
+
+1/14/22 12:00 PM
+-Created Animal.java, Plant.java, and Woo.java.
