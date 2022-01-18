@@ -17,6 +17,7 @@ public class Plant {
       _health+=20-Math.abs(temp-_idealTemperature);
     }
   }
+  //get grow time, _idealTemperature and health
 
   public static int getSeedPrice(String plantName){
     if (plantName.equals("wheat")){
