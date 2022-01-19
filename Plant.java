@@ -12,12 +12,11 @@ public class Plant {
 
 
   public void dayMethod(int temp) {
-    if (health>0){
+    if (_health>0){
       _growTime --;
       _health+=20-Math.abs(temp-_idealTemperature);
     }
   }
-  //get grow time, _idealTemperature and health
 
   public static int getSeedPrice(String plantName){
     if (plantName.equals("wheat")){
@@ -35,6 +34,7 @@ public class Plant {
     if (plantName.equals("golden beans")){
       return 700;
     }
+    return 0;
   }
 
   public static int getSellPrice(String plantName){
@@ -51,7 +51,8 @@ public class Plant {
       return 150;
     }
     if (plantName.equals("golden beans")){
-      return 1000;
+      return 100900;
     }
+    return 0;
   }
 }
