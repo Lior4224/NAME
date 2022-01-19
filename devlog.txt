@@ -54,3 +54,13 @@ LESSONS LEARNED
 
 1/14/22 12:00 PM
 -Created Animal.java, Plant.java, and Woo.java.
+
+1/18/22 12:00 PM
+-Created methods in Plant.java including dayMethod, getSeedPrice, getSellPrice
+-Created methods in Woo.java including searchFarm, buyCrop, newFarm, playTurn
+
+1/19/22 12:00 PM
+-Created subclasses for Plant (wheat, corn, potato, beans, goldenbeans) and adapted our code to use them
+-Created methods in Woo.java including cleanFarm, and added more to playTurn
+-Fixed buyCrop method
+-Made code compilable
