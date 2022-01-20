@@ -64,3 +64,6 @@ LESSONS LEARNED
 -Created methods in Woo.java including cleanFarm, and added more to playTurn
 -Fixed buyCrop method
 -Made code compilable
+
+1/19/22 8:00 PM
+-Updated README.md with team name, team roster, description, and instructions
