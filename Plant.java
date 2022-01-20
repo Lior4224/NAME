@@ -4,17 +4,23 @@ public class Plant {
   public int _health;
   public int _idealTemperature;
 
-  public Plant(String name, int growTime, int health) {
+  public Plant(String name, int growTime, int health,int temp) {
     _name = name;
     _growTime = growTime;
     _health = health;
+    _idealTemperature = temp;
   }
 
 
   public void dayMethod(int temp) {
+    if (_health==0){
+      _growTime = 0;
+    }
     if (_health>0){
-      _growTime --;
       _health+=20-Math.abs(temp-_idealTemperature);
+    }
+    if (_growTime>0){
+      _growTime--;
     }
   }
 
@@ -51,7 +57,7 @@ public class Plant {
       return 150;
     }
     if (plantName.equals("golden beans")){
-      return 100900;
+      return 10000;
     }
     return 0;
   }

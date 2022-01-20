@@ -5,9 +5,9 @@ public class Woo {
   public ArrayList<Plant> farm;
   public String name;
   public int balance = 500;
-  public int day;
-  public int stamina;
   public String currentCrop;
+  public int temperature = 50;
+  public int day = 0;
 
   public InputStreamReader isr;
   public BufferedReader in;
@@ -29,11 +29,18 @@ public class Woo {
     return count;
   }
 
+  public void dayMethod(){
+    for (int idx = 0; idx<farm.size();idx++){
+      Plant crop = farm.get(idx);
+      crop.dayMethod(temperature);
+    }
+  }
+
   public int cleanFarm(String cropName){
     int count = 0;
     for (int idx = farm.size()-1; idx>=0;idx--){
       Plant crop = farm.get(idx);
-      if (crop._name.equals(cropName)&&crop._growTime==0&&crop._health>0){
+      if (crop._name.equals(cropName)&&crop._growTime==0){
         farm.remove(idx);
       }
     }
@@ -46,7 +53,19 @@ public class Woo {
       balance-= price*quantity;
       for (int i = 0 ; i<quantity;i++){
         Plant newPlant;
-        newPlant = new Wheat();
+        if (name.equals("wheat")){
+          newPlant = new Wheat();
+        } else if (name.equals("corn")){
+          newPlant = new Corn();
+        } else if (name.equals("potato")){
+          newPlant = new Potato();
+        } else if (name.equals("beans")){
+          newPlant = new Beans();
+        } else if (name.equals("golden beans")){
+          newPlant = new GoldenBeans();
+        } else{
+          newPlant = new GoldenBeans();
+        }
         farm.add(newPlant);
       }
       return true;
@@ -68,7 +87,10 @@ public class Woo {
   }
 
   public void playTurn() {
+    System.out.println("==========================================");
     day += 1;
+    dayMethod();
+    farmReport();
     System.out.println("Choose the crop you want to farm today");
     System.out.println("-wheat");
     System.out.println("-corn");
@@ -79,24 +101,33 @@ public class Woo {
 	    currentCrop =  in.readLine() ;
     }
     catch ( IOException e ) { }
-    System.out.println("You can buy"+(balance/Plant.getSeedPrice(currentCrop))+currentCrop);
-    System.out.println("How many "+currentCrop+" do you want to buy today");
+    System.out.println("You can buy "+(balance/Plant.getSeedPrice(currentCrop))+" "+currentCrop+" seeds");
+    System.out.println("How many "+currentCrop+" seeds do you want to buy today");
     int quantity = 0;
     try {
 	    quantity =  Integer.parseInt(in.readLine()) ;
     }
     catch ( IOException e ) {System.out.println("too broke, no crops bought");}
+
     buyCrop(currentCrop,quantity);
     System.out.println("You have "+balance+" coins remaining");
     int availableCrops = searchFarm(currentCrop);
-    System.out.println("You made "+availableCrops*Plant.getSellPrice(currentCrop)+" coins from sale of crops");
+    System.out.println("You made "+availableCrops*Plant.getSellPrice(currentCrop)+" coins from sale of "+currentCrop);
     balance+=availableCrops*Plant.getSellPrice(currentCrop);
     //maybe tell them how many were sold
   }
 
-  // public String farmReport() {
-  //
-  // }
+  public void farmReport() {
+    System.out.println("Today is day "+day);
+    System.out.println("You have "+balance+" coins");
+    temperature = (int) (Math.random()*80)+10;
+    System.out.println("Your Crops");
+    for (int idx = 0; idx<farm.size();idx++){
+      Plant crop = farm.get(idx);
+      System.out.println(crop._name+":"+crop._health);
+    }
+    System.out.println("Today's temperature is "+temperature+ " degrees");
+  }
 
   public static void main(String[] args) {
     Woo Farm = new Woo();
