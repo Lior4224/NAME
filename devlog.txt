@@ -53,7 +53,7 @@ LESSONS LEARNED
 
 
 1/14/22 12:00 PM
--Created Animal.java, Plant.java, and Woo.java.
+-Created Plant.java and Woo.java.
 
 1/18/22 12:00 PM
 -Created methods in Plant.java including dayMethod, getSeedPrice, getSellPrice
