@@ -119,7 +119,7 @@ public class Woo {
 
   public void farmReport() {
     System.out.println("Today is day "+day);
-    System.out.println("You have "+balance+" coins");
+    System.out.println("You have "+balance+" coins\n");
     temperature = (int) (Math.random()*80)+10;
     System.out.println("Your Crops:");
     for (int idx = 0; idx<farm.size();idx++){
