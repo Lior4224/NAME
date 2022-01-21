@@ -45,20 +45,27 @@ public class Plant {
 
   public static int getSellPrice(String plantName){
     if (plantName.equals("wheat")){
-      return 40;
+      return Wheat.price;
     }
     if (plantName.equals("corn")){
-      return 50;
+      return Corn.price;
     }
     if (plantName.equals("potato")){
-      return 100;
+      return Potato.price;
     }
     if (plantName.equals("beans")){
-      return 150;
+      return Beans.price;
     }
     if (plantName.equals("golden beans")){
-      return 10000;
+      return GoldenBeans.price;
     }
     return 0;
+  }
+
+  public static void updatePrices(){
+    Wheat.updatePrice();
+    Corn.updatePrice();
+    Potato.updatePrice();
+    Beans.updatePrice();
   }
 }

@@ -36,11 +36,11 @@ public class Woo {
     }
   }
 
-  public int cleanFarm(String cropName){
+  public int cleanFarm(String cropName, int cropsSold){
     int count = 0;
-    for (int idx = farm.size()-1; idx>=0;idx--){
+    for (int idx = cropsSold-1; idx>=0;idx--){
       Plant crop = farm.get(idx);
-      if (crop._name.equals(cropName)&&crop._growTime==0){
+      if (crop._name.equals(cropName)&&crop._growTime==0&&crop._health>0){
         farm.remove(idx);
       }
     }
@@ -112,14 +112,26 @@ public class Woo {
     buyCrop(currentCrop,quantity);
     System.out.println("You have "+balance+" coins remaining");
     int availableCrops = searchFarm(currentCrop);
-    System.out.println("You made "+availableCrops*Plant.getSellPrice(currentCrop)+" coins from sale of "+currentCrop);
-    balance+=availableCrops*Plant.getSellPrice(currentCrop);
+    System.out.println("You have "+availableCrops+" "+currentCrop+"available to sell today. How many would you like to sell?");
+    try {
+	    quantity =  Integer.parseInt(in.readLine()) ;
+    }
+    catch ( IOException e ) {System.out.println("not an integer");}
+    System.out.println("You made "+quantity*Plant.getSellPrice(currentCrop)+" coins from sale of "+currentCrop);
+    cleanFarm(currentCrop,quantity);
+    balance+=quantity*Plant.getSellPrice(currentCrop);
     //maybe tell them how many were sold
   }
 
   public void farmReport() {
+    Plant.updatePrices();
     System.out.println("Today is day "+day);
     System.out.println("You have "+balance+" coins\n");
+    System.out.println("Today wheat sells for " +Wheat.price);
+    System.out.println("Today corn sells for " +Corn.price);
+    System.out.println("Today potato sells for " +Potato.price);
+    System.out.println("Today beans sells for " +Beans.price);
+    System.out.println("Today golden beans sells for " +GoldenBeans.price);
     temperature = (int) (Math.random()*80)+10;
     System.out.println("Your Crops:");
     for (int idx = 0; idx<farm.size();idx++){
