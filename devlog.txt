@@ -67,3 +67,7 @@ LESSONS LEARNED
 
 1/19/22 8:00 PM
 -Updated README.md with team name, team roster, description, and instructions
+
+1/20/22 12:00 PM
+-Created clearFarm method for Woo 
+-Adjusted temperature and health for crops
