@@ -89,6 +89,7 @@ public class Woo {
   public void playTurn() {
     System.out.println("==========================================");
     day += 1;
+    Greenhouse();
     dayMethod();
     farmReport();
     System.out.println("Choose the crop you want to farm today:");
@@ -112,7 +113,7 @@ public class Woo {
     buyCrop(currentCrop,quantity);
     System.out.println("You have "+balance+" coins remaining");
     int availableCrops = searchFarm(currentCrop);
-    System.out.println("You have "+availableCrops+" "+currentCrop+"available to sell today. How many would you like to sell?");
+    System.out.println("You have "+availableCrops+" "+currentCrop+" available to sell today. How many would you like to sell?");
     try {
 	    quantity =  Integer.parseInt(in.readLine()) ;
     }
@@ -139,6 +140,23 @@ public class Woo {
       System.out.println(crop._name+":"+crop._health);
     }
     System.out.println("\nToday's temperature is "+temperature+ " degrees");
+  }
+
+  public void Greenhouse() {
+    String z = "";
+    if (balance >= 2000){
+      //change to rent instead of buy
+      System.out.println("You have "+balance+" coins, which is enough to rent a greenhouse, allowing you to control temperature today. Do you want to rent it? (yes or no)");
+      try {z = in.readLine();
+      }catch ( IOException e) {}
+        if (z.equals ("yes")) {
+        System.out.println("What do you want to set the temperature to?");
+        try {
+          temperature = Integer.parseInt(in.readLine());
+        }catch ( IOException e ) {System.out.println(e);}
+        balance-=2000;
+      }
+    }
   }
 
   public static void main(String[] args) {
