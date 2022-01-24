@@ -144,7 +144,7 @@ public class Woo {
 
   public void Greenhouse() {
     String z = "";
-    if (balance >= 800){
+    if (balance >= 2000){
       //change to rent instead of buy
       System.out.println("You have "+balance+" coins, which is enough to rent a greenhouse, allowing you to control temperature today. Do you want to rent it? (yes or no)");
       try {z = in.readLine();
