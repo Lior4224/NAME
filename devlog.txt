@@ -10,23 +10,24 @@ Adventure Farmer (Farming Simulator)
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- Utilizing methods and attributes across many .java files
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- It is unlikely for some plants with high grow times to survive
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- Using Try/Catch with scanner
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- Removed animals 
+- Fixed sale prices to randomized sale prices
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- Planning out which methods and instance variable should go where when utilizing multiple .java files is extremely helpful
 ||||||||||||||||||||||||||||||||||||||||||
 
 
