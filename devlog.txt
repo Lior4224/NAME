@@ -74,5 +74,8 @@ Lior, Jacob, Jeffery :: Created clearFarm method for Woo
 Lior, Jacob, Jeffery :: Adjusted temperature and health for crops
 
 1/21/22 12:00 PM
-Lior :: Created greenhouse method
-Jacob, Jeffery :: Randomized sale prices of each crop each day
+Lior :: Created Greenhouse method
+Jacob, Jeffery :: Randomized sale prices of each crop for each day
+
+1/23/22 10:00 PM
+Jeffery :: Completed Greenhouse method & changed price of Greenhouse to 800
