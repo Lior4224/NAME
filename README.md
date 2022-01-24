@@ -12,6 +12,6 @@ be able to buy more seeds to grow.
 
 How to Launch Adventure Farmer
 
-After initiating the program (javac woo.java -> java woo), the player will be asked to name their farm. For every in-game day, the player can choose to buy or sell a type 
+After initiating the program, the player will be asked to name their farm. For every in-game day, the player can choose to buy or sell a type 
 of plant based on the daily farm report. They can input the amount of seeds of that type to buy. They can input 0 
 if the balance is not enough or simply wish to move on to the next day.
