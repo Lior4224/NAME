@@ -78,4 +78,4 @@ Lior :: Created Greenhouse method
 Jacob, Jeffery :: Randomized sale prices of each crop for each day
 
 1/23/22 10:00 PM
-Jeffery :: Completed Greenhouse method & changed price of Greenhouse to 800
+Jeffery :: Completed Greenhouse method & changed price of Greenhouse to 2000
