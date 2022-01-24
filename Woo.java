@@ -89,7 +89,6 @@ public class Woo {
   public void playTurn() {
     System.out.println("==========================================");
     day += 1;
-    Greenhouse();
     dayMethod();
     farmReport();
     System.out.println("Choose the crop you want to farm today:");
@@ -139,12 +138,13 @@ public class Woo {
       Plant crop = farm.get(idx);
       System.out.println(crop._name+":"+crop._health);
     }
+    Greenhouse();
     System.out.println("\nToday's temperature is "+temperature+ " degrees");
   }
 
   public void Greenhouse() {
     String z = "";
-    if (balance >= 2000){
+    if (balance >= 800){
       //change to rent instead of buy
       System.out.println("You have "+balance+" coins, which is enough to rent a greenhouse, allowing you to control temperature today. Do you want to rent it? (yes or no)");
       try {z = in.readLine();

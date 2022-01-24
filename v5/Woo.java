@@ -36,11 +36,11 @@ public class Woo {
     }
   }
 
-  public int cleanFarm(String cropName){
+  public int cleanFarm(String cropName, int cropsSold){
     int count = 0;
-    for (int idx = farm.size()-1; idx>=0;idx--){
+    for (int idx = cropsSold-1; idx>=0;idx--){
       Plant crop = farm.get(idx);
-      if (crop._name.equals(cropName)&&crop._growTime==0){
+      if (crop._name.equals(cropName)&&crop._growTime==0&&crop._health>0){
         farm.remove(idx);
       }
     }
@@ -79,7 +79,6 @@ public class Woo {
     farm = new ArrayList<Plant>();
     String s= "Welcome to Adventure Farm. What would you like your farm to be called?";
     System.out.print(s);
-    balance = 10001;
     try {
       name = in.readLine();
     }catch(IOException e){System.out.println(e);}
@@ -113,30 +112,41 @@ public class Woo {
     buyCrop(currentCrop,quantity);
     System.out.println("You have "+balance+" coins remaining");
     int availableCrops = searchFarm(currentCrop);
-    System.out.println("You made "+availableCrops*Plant.getSellPrice(currentCrop)+" coins from sale of "+currentCrop);
-    balance+=availableCrops*Plant.getSellPrice(currentCrop);
+    System.out.println("You have "+availableCrops+" "+currentCrop+" available to sell today. How many would you like to sell?");
+    try {
+	    quantity =  Integer.parseInt(in.readLine()) ;
+    }
+    catch ( IOException e ) {System.out.println("not an integer");}
+    System.out.println("You made "+quantity*Plant.getSellPrice(currentCrop)+" coins from sale of "+currentCrop);
+    cleanFarm(currentCrop,quantity);
+    balance+=quantity*Plant.getSellPrice(currentCrop);
     //maybe tell them how many were sold
   }
 
   public void farmReport() {
+    Plant.updatePrices();
     System.out.println("Today is day "+day);
     System.out.println("You have "+balance+" coins\n");
+    System.out.println("Today wheat sells for " +Wheat.price);
+    System.out.println("Today corn sells for " +Corn.price);
+    System.out.println("Today potato sells for " +Potato.price);
+    System.out.println("Today beans sells for " +Beans.price);
+    System.out.println("Today golden beans sells for " +GoldenBeans.price);
     temperature = (int) (Math.random()*80)+10;
     System.out.println("Your Crops:");
     for (int idx = 0; idx<farm.size();idx++){
       Plant crop = farm.get(idx);
       System.out.println(crop._name+":"+crop._health);
     }
-    Greenhouse(balance);
+    Greenhouse();
     System.out.println("\nToday's temperature is "+temperature+ " degrees");
   }
 
-  public boolean Greenhouse(int y/*balance*/) {
-    boolean x = false;
+  public void Greenhouse() {
     String z = "";
-    if (y >= 2000){
+    if (balance >= 800){
       //change to rent instead of buy
-      System.out.println("You have 10000 coins, which is enough to buy a greenhouse, which allows you to control temperature. Do you want to buy it? (yes or no)");
+      System.out.println("You have "+balance+" coins, which is enough to rent a greenhouse, allowing you to control temperature today. Do you want to rent it? (yes or no)");
       try {z = in.readLine();
       }catch ( IOException e) {}
         if (z.equals ("yes")) {
@@ -144,11 +154,10 @@ public class Woo {
         try {
           temperature = Integer.parseInt(in.readLine());
         }catch ( IOException e ) {System.out.println(e);}
+        balance-=2000;
       }
     }
-    return x;
   }
-
 
   public static void main(String[] args) {
     Woo Farm = new Woo();
