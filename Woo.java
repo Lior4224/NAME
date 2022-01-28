@@ -117,9 +117,11 @@ public class Woo {
 	    quantity =  Integer.parseInt(in.readLine()) ;
     }
     catch ( IOException e ) {System.out.println("not an integer");}
-    System.out.println("You made "+quantity*Plant.getSellPrice(currentCrop)+" coins from sale of "+currentCrop);
-    cleanFarm(currentCrop,quantity);
-    balance+=quantity*Plant.getSellPrice(currentCrop);
+    if (quantity<=availableCrops){
+      System.out.println("You made "+quantity*Plant.getSellPrice(currentCrop)+" coins from sale of "+currentCrop);
+      cleanFarm(currentCrop,quantity);
+      balance+=quantity*Plant.getSellPrice(currentCrop);
+    }else {System.out.println("you dont have this many crops");}
     //maybe tell them how many were sold
   }
 
